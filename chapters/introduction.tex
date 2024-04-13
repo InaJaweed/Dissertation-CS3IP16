@@ -2,28 +2,28 @@
 \label{ch:into} % This how you label a chapter and the key (e.g., ch:into) will be used to refer this chapter ``Introduction'' later in the report. 
 % the key ``ch:into'' can be used with command \ref{ch:intor} to refere this Chapter.
 
-\textbf{Guidance on introduction chapter writing:} Introductions are written in the following parts:
-\begin{itemize}
-    \item A brief  description of the investigated problem.
-    \item A summary of the scope and context of the project, i.e., what is the background of the topic/problem/application/system/algorithm/experiment/research question/hypothesis/etc. under investigation/implementation/development [whichever is applicable to your project].
-    \item The aims and objectives of the project.
-    \item A description of the problem and the methodological approach adopted to solve the problem.
-    \item A summary of the most significant outcomes and their interpretations.
-    \item Organization of the report. 
-\end{itemize}
+%\textbf{Guidance on introduction chapter writing:} Introductions are written in the following parts:
+%\begin{itemize}
+ %   \item A brief  description of the investigated problem.
+  %  \item A summary of the scope and context of the project, i.e., what is the background of the topic/problem/application/system/algorithm/experiment/research question/hypothesis/etc. under investigation/implementation/development [whichever is applicable to your project].
+   % \item The aims and objectives of the project.
+    %\item A description of the problem and the methodological approach adopted to solve the problem.
+    %\item A summary of the most significant outcomes and their interpretations.
+    %\item Organization of the report. 
+%\end{itemize}
 
 
-Consult \textbf{your supervisor} to check the content of the introduction chapter. In this template, we only offer basic sections of an introduction chapter. It may  not be complete and comprehensive. Writing a report is a subjective matter, and a report's style and structure depend on the ``type of project'' as well as an individual's preference. This template suits the following project paradigms:
-\begin{enumerate}
-    \item software engineering and software/web application development;
-    \item algorithm implementation, analysis and/or application;  
-    \item science lab (experiment); and
-    \item pure theoretical development (not mention extensively).
-\end{enumerate}
+%Consult \textbf{your supervisor} to check the content of the introduction chapter. In this template, we only offer basic sections of an introduction chapter. It may  not be complete and comprehensive. Writing a report is a subjective matter, and a report's style and structure depend on the ``type of project'' as well as an individual's preference. This template suits the following project paradigms:
+%\begin{enumerate}
+ %   \item software engineering and software/web application development;
+  %  \item algorithm implementation, analysis and/or application;  
+   % \item science lab (experiment); and
+    %\item pure theoretical development (not mention extensively).
+%\end{enumerate}
 
-Use only a single \textbf{font} for the body text. We recommend using a clean and electronic document friendly font like \textbf{Arial} or \textbf{Calibri} for MS-word (If you create a report in MS word). If you use this template, DO NOT ALTER the template's default font ``amsfont default computer modern''. The default \LaTeX~font ``computer modern'' is also acceptable. 
+%Use only a single \textbf{font} for the body text. We recommend using a clean and electronic document friendly font like \textbf{Arial} or \textbf{Calibri} for MS-word (If you create a report in MS word). If you use this template, DO NOT ALTER the template's default font ``amsfont default computer modern''. The default \LaTeX~font ``computer modern'' is also acceptable. 
 
-The recommended body text \textbf{font size} is minimum \textbf{11pt} and minimum one-half line spacing. The recommended figure/table caption font size is minimum 10pt. The footnote\footnote{Example footnote: footnotes are useful for adding external sources such as links as well as extra information on a topic or word or sentence. Use command \textbackslash footnote\{...\} next to a word to generate a footnote in \LaTeX.} font size is minimum 8pt. DO NOT ALTER the font setting of this template.   
+%The recommended body text \textbf{font size} is minimum \textbf{11pt} and minimum one-half line spacing. The recommended figure/table caption font size is minimum 10pt. The footnote\footnote{Example footnote: footnotes are useful for adding external sources such as links as well as extra information on a topic or word or sentence. Use command \textbackslash footnote\{...\} next to a word to generate a footnote in \LaTeX.} font size is minimum 8pt. DO NOT ALTER the font setting of this template.   
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Background}
@@ -40,7 +40,15 @@ The project focuses on the development of an online multiplayer game called Tank
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Problem statement}
 \label{sec:intro_prob_art}
-This section describes the investigated problem in detail. You can also have a separate chapter on ``Problem articulation.''  For some projects, you may have a section like ``Research question(s)'' or ``Research Hypothesis'' instead of a section on ``Problem statement.'
+Traditional online multiplayer games often present technical challenges that can negatively impact the player experience and hinder the accessibility and growth of online games. These challenges include:
+\begin{itemize}
+    \item The requirement for manual port-forwarding: To enable incoming connections for the game, players frequently need to change their router settings to open particular ports manually. For many players, this can be time-consuming and technically difficult~\cite{network-architecting}.
+    \item IP address sharing: Traditional online games frequently require sharing IP addresses to create direct connections between players. Players must provide their IP addresses to others, which presents privacy and security issues~\cite{issues-socialComputing}.
+    \item Complex network configuration: Complex network settings may be necessary to set up and maintain a reliable multiplayer gaming environment. For those without extensive networking knowledge, navigating firewall settings, network address translation (NAT), and other technical issues may be challenging for players~\cite{develop-unity}.
+\end{itemize}
+These technical hurdles create barriers to entry for players, limiting the accessibility of online multiplayer games~\cite{port-forwarding}. As a result, many players might be prevented from participating in online gaming, which might hinder the growth and popularity of multiplayer games. The success and broad uptake of online games depend on resolving these issues and offering a smooth, intuitive, multiplayer gaming experience~\cite{multiplayer-networking}.
+\\
+By utilising NGO framework and UGS Relay \& Lobby, Tank Tactics seeks to address these issues and provide users with a more engaging and accessible multiplayer gaming experience. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Aims and objectives}
