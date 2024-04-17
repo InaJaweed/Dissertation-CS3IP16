@@ -28,7 +28,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Background}
 \label{sec:into_back}
-The project focuses on the development of an online multiplayer game called Tank Tactics. Utilising Unity's Netcode for GameObjects (NGO) framework and Unity Gaming Services (UGS) Relay \& Lobby, which allows self-hosting without the need for port forwarding and sharing IP addresses. The gameplay of Tank Tactics is inspired by popular .io style games such as Agar.io and Slither.io, as well as classic tank-based games like Tank Trouble and Wii Tanks. The game features a top-down shooter mechanic, where the player controls tanks and engages in combat. To keep the gameplay engaging and dynamic the game incorporates various features including:
+Multiplayer online games have seen a significant rise in popularity and player engagement in recent years. However, in traditional multiplayer game development often faces challenges in such as then need for manual port-forwarding and IP address sharing, which can hinder accessibility and growth. Tank Tactics aims to address these limitations by leveraging Unity's Netcode for GameObjects (NGO) framework and Unity Gaming Services (UGS) Relay \& Lobby, which enables seamless multiplayer connectivity and self-hosting.
+\subsection{Tank Tactics Game Overview}
+The project focuses on the development of an online multiplayer game called Tank Tactics. The gameplay of Tank Tactics is inspired by popular .io style games such as Agar.io and Slither.io, as well as classic tank-based games like Tank Trouble and Wii Tanks. The game features a top-down shooter mechanic, where the player controls tanks and engages in combat.
+\subsection{Unity Game Engine and Multiplayer Technologies}
+Tank Tactics is developed using Unity, a widely used game engine platform that provides a wide range of tools and features for game development. To enable seamless multiplayer functionality, the project leverages two key technologies: Unity's Netcode for GameObjects (NGO) framework and Unity Gaming Services (UGS) Relay \& Lobby.
+\subsubsection{Netcode for GameObjects (NGO)}
+Netcode for GameObjects (NGO) is a high-level API provided by Unity that simplifies the process of building networked games. It abstracts away many of the low-level details of networking, allowing developers to focus on creating the gameplay logic and synchronising objects across the network, NGO handles tasks such as network communication, object spawning, and state synchronisation, making it easier to create multiplayer games.
+\subsubsection{Unity Gaming Services (UGS) Relay \& Lobby}
+Unity Gaming Services (UGS) Relay \& Lobby is a service provided by Unity that handles the hosting and matchmaking aspects of multiplayer games. UGS Relay provides a secure and scalable infrastructure for hosting multiplayer game sessions, eliminating the need for players to manually configure port-forward or share IP addresses. UGS Lobby, on the other hand, facilitates the matchmaking process allowing players to find and join available game sessions.
+\subsection{Key Feature of Tank Tactics}
+To keep the gameplay engaging and dynamic the game incorporates various features including:
 \begin{itemize}
     \item Leaderboard: A real-time leaderboard that tracks top-performing players, creating a sense of competitiveness among players.
     \item Mini-map: A miniaturised map that provides players situational awareness, allowing them to monitor the map and the position of other players.
@@ -85,9 +95,9 @@ The Solution approach for developing Tank Tactics multiplayer game using Unity's
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Summary of contributions and achievements} %  use this section 
-\label{sec:intro_sum_results} % label of summary of results
-Describe clearly what you have done/created/achieved and what the major results and their implications are. 
+%\section{Summary of contributions and achievements} %  use this section 
+%\label{sec:intro_sum_results} % label of summary of results
+%Describe clearly what you have done/created/achieved and what the major results and their implications are. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
