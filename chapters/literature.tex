@@ -71,7 +71,7 @@ In summary, Tank Tactics represents a modern take on the multiplayer gaming lega
 % PLEAE CHANGE THE TITLE of this section
 \section{Online Multiplayer Game Development Challenges} 
 % Note the use of \cite{} and \citep{}
-Developing an online multiplayer game presents a unique set of challenges compared to single-player games. \cite{adding-mutliplayer} highlights that adding online multiplayer functionality to a game can double the amount of work required for programming. This section explores the various challenges developers face when creating online multiplayer games.
+Developing an online multiplayer game presents a unique set of challenges compared to single-player games. \cite{adding-mutliplayer} highlights that adding online multiplayer functionality to a game can double the amount of work required for programming. This section explores the various challenges developers face when creating online multiplayer games, including connecting players (2.2.1), manual port forwarding and IP sharing (2.2.2), complex network configurations (2.2.3) scalability and performance (2.2.4) and security (2.2.5). The section concludes by discussing how Tank Tactics addresses these challenges (2.2.6).
 
 \subsection{Connecting Players}
 Connecting players over the internet is a complex task that involves multiple layers of communication. At the most basic level, players' devices must establish a connection using a specific network protocol, such as Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) \cite{network-architecting}. The choice of protocol depends on the game's requirement for speed, reliability, and error correction. Once a connection is established, the game must manage the flow of data between players, ensuring that updates are sent and received on time.
@@ -119,6 +119,21 @@ Online multiplayer games must also protect against security threats, such as den
 \noindent
 \\
 Balancing security and performance is an ongoing challenge, as security measures can introduce overhead and latency that may impact gameplay. Developers must carefully consider the trade-offs and implement security solutions that provide necessary protection without compromising the player experience \cite{network-architecting}. 
+
+\subsection{Tank Tactics: Addressing Multiplayer Game Development Challenges}
+Tank Tactics addresses several of the challenges mentioned in the previous subsections by leveraging modern technologies and frameworks. By utilising NGO framework and UGS Relay \& Lobby, the game eliminates the need for manual port-forwarding and IP address sharing. This significantly reduces the technical barriers for players and improves accessibility, as players no longer need to configure their routers or share personal information to establish connections.
+\\
+\noindent
+\\
+The use of UGS Relay \& Lobby also simplifies the process of connecting players, as it handles the complexities of NAT traversal and provides a secure, scalable infrastructure for hosting multiplayer game sessions. This allows players to easily find and join available game sessions without the need for complex network configurations.
+\\
+\noindent
+\\
+Furthermore, by leveraging the capabilities of the Unity game engine and its associated services, Tank Tactics can focus on optimising performance and scalability. The game can take advantage of Unity's built-in features for efficient network communication, object synchronisation, and game state management, reducing the development effort required to create a smooth and responsive multiplayer experience,
+\\
+\noindent
+\\
+In terms of security, Tank Tactics benefits from the security measures and best practices implemented by Unity and its services The use of secure communication protocols, encryption, and authentication mechanisms helps protect player data and prevent unauthorised access to game servers.
 
 % PLEAE CHANGE THE TITLE of this section
 \section{Network Topologies in Online Multiplayer Games }
