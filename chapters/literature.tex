@@ -121,7 +121,7 @@ Online multiplayer games must also protect against security threats, such as den
 Balancing security and performance is an ongoing challenge, as security measures can introduce overhead and latency that may impact gameplay. Developers must carefully consider the trade-offs and implement security solutions that provide necessary protection without compromising the player experience \cite{network-architecting}. 
 
 \subsection{Tank Tactics: Addressing Multiplayer Game Development Challenges}
-Tank Tactics addresses several of the challenges mentioned in the previous subsections by leveraging modern technologies and frameworks. By utilising NGO framework and UGS Relay \& Lobby, the game eliminates the need for manual port-forwarding and IP address sharing. This significantly reduces the technical barriers for players and improves accessibility, as players no longer need to configure their routers or share personal information to establish connections.
+Tank Tactics addresses several of the challenges mentioned in the previous subsections by leveraging modern technologies and frameworks. By utilising the NGO framework and UGS Relay \& Lobby, the game eliminates the need for manual port-forwarding and IP address sharing. This significantly reduces the technical barriers for players and improves accessibility, as players no longer need to configure their routers or share personal information to establish connections.
 \\
 \noindent
 \\
@@ -135,10 +135,100 @@ Furthermore, by leveraging the capabilities of the Unity game engine and its ass
 \\
 In terms of security, Tank Tactics benefits from the security measures and best practices implemented by Unity and its services The use of secure communication protocols, encryption, and authentication mechanisms helps protect player data and prevent unauthorised access to game servers.
 
-% PLEAE CHANGE THE TITLE of this section
+% PLEASE CHANGE THE TITLE of this section
 \section{Network Topologies in Online Multiplayer Games }
+The choice of network topology is a fundamental design decision when engineering a networked multiplayer game. The network topology describes how the computer and gaming devices are connected over the network \cite{multiplayer-networking}. The two main types of network topologies used in online multiplayer games are client-server and peer-to-peer.
 
-Text Here
+\subsection{Client-Server Topology}
+In a client-server topology, players connect to a central server that coordinates the game state and relays data between players. The server is the authoritative source of the game state. Clients send their input commands to the server, and the server validates these commands, simulates the game, and sends back the updated state to the clients \cite{network-architecting}.
+\\
+\noindent
+\\
+Advantages of client-server topology include:
+\begin{itemize}
+    \item Better security and cheat prevention since a trusted dedicated server has authority over the simulation
+    \item Ability to handle a large number of players (scalability)
+    \item Simplifed game state management and synchronisation
+\end{itemize}
+\noindent
+\\
+Disadvantages of client-server topology include: 
+\begin{itemize}
+    \item Cost of running dedicated servers
+    \item Server being a single point of failure
+    \item Potential for higher latency due to the extra hop between clients and server
+\end{itemize}
+\noindent
+\subsubsection{Tribes Networking Model:}
+Starsiege: Tribes, released in 1998, is an example of a game using a client-server model \cite{frohnmayer2000tribes}. In Tribes, a single central server maintains the authoritative game state and communicates with up to 128 clients. The ghost manager system on the server determines which objects are relevant to each client and only sends those. This relevant filtering was key to reducing bandwidth sage and scaling support to 128 concurrent players.
+
+\subsection{Peer-to-Peer Topology}
+In a peer-to-peer (P2P) topology, each player's computer connects directly to every other player's computer without a central server. Game state and simulation are distributed across all participating machines \cite{multiplayer-networking}.
+\\
+\noindent
+\\
+Advantages of P2P topology include:
+\begin{itemize}
+    \item Reduced infrastructure and hosting costs
+    \item Potentially lower latency due to direct connections between peers
+    \item No single point of failure
+\end{itemize}
+\noindent
+\\
+Disadvantages of P2P topology include:
+\begin{itemize}
+    \item Increased complexity in game state management and synchronisation
+    \item Difficulty in preventing cheating and ensuring fair play
+    \item Limited scalability due to exponential growth in the number of connections.
+\end{itemize}
+\noindent
+\subsubsection{Deterministic Lockstep Model:}
+Age of Empires, released in 1997, used a peer-to-peer topology with a deterministic lockstep networking model \cite{bettner20011500}. In Age of Empires, the game does not send the game state over the network - instead, it sends the player commands. The game simulation is deterministic, meaning that as long as every peer reviewers every command in the same order, the simulation will not diverge.
+\\
+\noindent
+\\
+Techniques used in the deterministic lockstep model include:
+\begin{itemize}
+    \item Command Queue: Each peer maintains a queue of commands to execute. Commands are only executed once all payers have acknowledged receiving them.
+    \item Turn Timers: The game is divided into turns, with each turn lasting a fixed amount of time (e.g. 200ms). Peers send their commands for the turn to each other and then simulate the turn deterministically.
+    \item Sync Checking: peers periodically compare their game state to ensure synchronisation and detect any divergence.
+\end{itemize}
+The deterministic lockstep model works well for games with a relatively small number of players and low update frequency, such as turn-based or slow-paced real-time strategy games. However, it can introduce latency and may not scale well to fast-paced games or a large number of players.
+
+\subsection{Hybrid Topologies}
+\cite{network-architecting} note that modern online games often use a combination or hybrid of client-server and peer-to-peer topologies to balance the advantages and disadvantages of each.
+\noindent
+\subsubsection{Listen Server:}
+In a listen server mode, one player acts as the server, and the rest connects as clients to them. This avoids the infrastructure cost of dedicated servers while still providing some of the benefits of the client-server model, such as improved security and state management. However, the host player may have an unfair advantage in terms of latency, and the game is dependent on the host's connection quality.
+
+\subsubsection{Broadcast Server:}
+\cite{bettner20011500} discuss using a broadcast server to allow Age of Empires to scale to more than 4 players in a peer-to-peer topology. In this model, a server is used to broadcast game state updates to all peers, but the peers still simulate the game deterministically based on the received state updates. This reduces the number of connections each peer needs to maintain, improving scalability.
+
+\subsection{Overall}
+Client-server and peer-to-peer network topologies each have strengths and weaknesses. Client-server is the most common modern approach for online multiplayer games due to its ability to robustly scale to more players and provide strong security cheat prevention. However, peer-to-peer remains viable for smaller-scale games and those that wish to avoid the infrastructure costs of dedicated servers.
+\\
+\noindent
+\\
+Hybrid topologies that combine elements of client-server and peer-to-peer can offer a balance of their respective benefits. However, careful engineering is required with any topology to build a game that plays smoothly online, considering factors such as bandwidth usage, latency, state synchronisation, and cheat prevention.
+
+\subsection{Tank Tactics: Client-Hosted Listen Server Model}
+Tank Tactics employs a client-hosted listen server model, which is a type of hybrid topology that combines aspects of client-server and peer-to-peer architectures. In this model, one of the players acts as both a client and a server, hosting the game for other players who connect as clients.
+\\
+\noindent
+\\
+The listen server model used in Tank Tactics builds upon the traditional client-server topology by eliminating the need for dedicated server infrastructure. This reduces hosting costs and allows players to set up matches more easily. However, it still maintains many of the benefits of client-server architecture, such as improved security and simplified game state management compared to a pure peer-to-peer topology.
+\\
+\noindent
+\\
+Unlike the deterministic lockstep model used in Age of Empires, Tank Tactics does not rely on deterministic simulation across all clients. Instead, the listen server acts as the authoritative source of the game state, similar to a dedicated server in a client-server topology. This allows Tank Tactics to support faster-paced, real-time gameplay without the latency issues that can arise in a deterministic lockstep model.
+\\
+\noindent
+\\
+However, the client-hosted listen server model also has some disadvantages compared to a dedicated client-server architecture. The host player may have an advantage in terms of latency, as they do not need to spend updates to themselves. Additionally, the game's performance and stability are dependent on the host player's connection quality.
+\\
+\noindent
+\\
+Despite these limitations, the client-hosted listen server model, is a good fit for Tank Tactics, as it allows for more accessible multiplayer gaming while still providing a reasonably secure and manageable network architecture. This model is particularly well-suited for smaller-scale multiplayer games like Tank Tactics, where the number of players per match is limited, and the costs of running dedicated servers may outweigh the benefits.
 
 \section{Matchmaking and Lobby Systems}
 
@@ -146,8 +236,8 @@ Text Here
 
 \section{Unity Game Engine and Multiplayer Technologies}
 
-% A possible section of you chapter
-\section{Critique of the review} % Use this section title or choose a betterone
+% A possible section of your chapter
+\section{Critique of the review} % Use this section title or choose a better one
 
 
 % Pleae use this section
