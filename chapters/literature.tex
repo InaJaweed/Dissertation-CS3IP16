@@ -1,7 +1,7 @@
 \chapter{Literature Review}
 \label{ch:lit_rev} %Label of the chapter lit rev. The key ``ch:lit_rev'' can be used with command \ref{ch:lit_rev} to refer this Chapter.
 
-Text Will GO HERE
+This chapter provides a comprehensive literature review exploring the key aspects related to the development of Tank Tactics, an online multiplayer game built using the Unity game engine. The review is divided into four main sections, each focusing on a specific area of interest. Section 2.1 traces the evolution of multiplayer gaming, contextualizing Tank Tactics within the broader history of gaming and networking. Section 2.2 examines the challenges developers face when creating online multiplayer games and discusses how Tank Tactics addresses these challenges. Section 2.3 explores the choice of network topology, comparing client-server and peer-to-peer models, and explains how Tank Tactics employs a client-hosted listen server model. Finally, Section 2.4 provides an in-depth look at the Unity game engine and its multiplayer technologies, covering scripting, multiplayer solutions, Unity Gaming Services (UGS), limitations, future developments, and how Tank Tactics leverages these technologies to create a unique and engaging experience.
 
 \section{History of Gaming and Networking}
 Section 2.1 provides a comprehensive overview of the history of gaming and networking, tracing the evolution of multiplayer gaming from its early beginnings to the present day. By examining the key milestones and technological advancements that have shaped the multiplayer gaming landscape, this section aims to contextualise the development of Tank Tactics. The subsection in 2.1 covers various aspects of multiplayer gaming history, including early multiplayer games (2.1.1), the role of mainframe computers and early computer networks (2.1.2), the impact of MultiUser Dungeons (MUDs) and arcade multiplayer gaming (2.1.3), the impact of LAN-based (2.1.4) and Internet-based gaming (2.1.5), and recent trends and challenges in the gaming industry (2.1.6). The section, concludes by discussing how Tank Tactics builds upon this rich legacy while addressing contemporary challenges in multiplayer game development (2.1.7).
@@ -230,16 +230,90 @@ However, the client-hosted listen server model also has some disadvantages compa
 \\
 Despite these limitations, the client-hosted listen server model, is a good fit for Tank Tactics, as it allows for more accessible multiplayer gaming while still providing a reasonably secure and manageable network architecture. This model is particularly well-suited for smaller-scale multiplayer games like Tank Tactics, where the number of players per match is limited, and the costs of running dedicated servers may outweigh the benefits.
 
-\section{Matchmaking and Lobby Systems}
-
-Text Here
-
 \section{Unity Game Engine and Multiplayer Technologies}
+This section provides an in-depth exploration of the Unity game engine and its multiplayer technologies, which form the foundation for the development of Tank Tactics. Begins with an overview of the Unity game engine (2.4.1), highlighting its user-friendliness, versatility, and widespread adoption among game developers. The section then explores Unity's scripting capabilities (2.4.2). Next, it examines the multiplayer solution offered by Unity (2.4.3), particularly the Netcode for GameObject (NGO) framework. The section also covers Unity Gaming Service (UGS) (2.4.4). The limitations and future development of Unity's multiplayer technologies are discussed (2.4.5), followed by a conclusion summarising the key points (2.4.6). Finally, the section concludes by examining how Tank Tactics leverages Unity's multiplayer technologies to create a unique and engaging online gaming experience (2.4.7)
 
-% A possible section of your chapter
-\section{Critique of the review} % Use this section title or choose a better one
+\subsection{Overview of Unity Game Engine}
+Unity is a widely used cross-platform game engine developed by Unity Technologies. Since its initial release in 2005, Unity has gained significant popularity among game developers, particularly indie developers \cite{game-engine}. The engine's user-friendliness, versatility, and support for both 2D and 3D games across multiple platforms have contributed to its widespread adoption.
+\\
+\noindent
+\\
+Unity offers a comprehensive set of tools and features to streamline the game development process. The Unity editor provides a user-friendly interface with customisable layouts and various windows for scene editing, game object hierarchy management, asset management, and more \cite{Unity-Tech2022.3d}. The engine employs a component-based architecture, where game objects are composed of reusable components \cite{Unity-Tech2022.3b}. This modular approach simplifies development and promotes code reusability, making it easier for developers to create and iterate on their games.
 
+\subsection{Scripting in Unity}
+One of Unity's key strengths is its scripting capabilities. Unity supports the C\# programming language for writing game logic and behaviour. Developers can create custom scripts by deriving from the MonoBehaviour class, which provides access to Unity's event functions and lifecycle methods \cite{Unity-Tech2022.3a}. This allows for fine-grained control over game objects and their interactions, enabling developers to implement complex gameplay mechanics and systems.
+\\
+\noindent
+\\
+Unity's scripting systems are designed to be accessible to developers with varying levels of programming experience. The engine provides a rich set of APIs and documentation, making it easier for developers to learn and utilise the scripting features effectively.
+
+\subsection{Multiplayer Solutions in Unity}
+In recent years, Unity has been actively expanding its multiplayer offerings to meet the growing demand for online multiplayer experiences. Unity Technologies has introduced various networking solutions to facilitate the development of networked games, making it easier for developers to create multiplayer functionality within their projects.
+\\
+\noindent
+\\
+One of Unity's primary multiplayer solutions is the Netcode for GameObjects (NGO) framework, NGO is a high-level networking library that abstracts away the complexities of networking, allowing developers to focus on creating gameplay logic and synchronising objects across the network \cite{Unity-NGO}. It leverages the Unity Transport package, a low-level networking library that manages connection using UDP and WebSockets \cite{Unity-Transport}. NGO supports a client-server topology and provides features such as object spawning, state synchronisation, and remote procedure calls (RPCs) for seamless multiplayer functionality.
+
+\subsection{Unity Gaming Services (UGS)}
+To further simplify the multiplayer development process, Unity offers Unity Gaming Services (UGS). UGS is a suite of services and tools that address various aspects of multiplayer game development including multiplayer services, diagnostics, analytics, and monetisation \cite{Unity-UGS}. Two notable services within UGS that are particularly relevant for multiplayer games are Relay and Lobby.
+\\
+\noindent
+\\
+The Relay service enables players to connect through Unity's proxy relay server, eliminating the need for manual port forwarding and resolving issues related to NAT and firewalls \cite{Cardoso-Relay}. It simplifies the process of establishing connections between players, making it easier for developers to create an accessible multiplayer experience without the complexities of direct peer-to-peer connections.
+\\
+\noindent
+\\
+The Lobby service provides a framework for players to find and join game sessions \cite{Cardoso-Lobby}. It allows developers to create lobbies where players can gather before starting a match, facilitating matchmaking and player grouping. The Lobby services integrate seamlessly with the Relay service, enabling players to connect through the relay once they have joined a lobby. This combination of services streamlines the multiplayer experience for both developers and players.
+
+\subsection{Limitation and Future Developments}
+While Unity's multiplayer solutions are powerful and user-friendly, they may have limitations in terms of scalability and performance. NGO is primarily suitable for small to medium-scale games and may not be optimal for large-scale, high-performance titles \cite{lemay-forum}. However, Unity Technologies is continuously improving and expanding its multiplayer offerings to address these limitations and cater to a wider range of multiplayer game requirements.
+\\
+\noindent
+\\
+As Unity continues to evolve and enhance its multiplayer capabilities, it is expected to play a significant role in shaping the future of multiplayer game development. With the growing demand for online multiplayer experiences, Unity's commitment to providing accessible and efficient multiplayer solutions will empower more developers to create engaging and immersive multiplayer games.
+
+\subsection{Conclusion}
+Unity's comprehensive toolset, user-friendly interface and multiplayer technologies make it an attractive choice for game developers looking to create online multiplayer experiences. The combination of NGO and UGS provides a solid foundation for implementing multiplayer functionality in games like Tank Tactics. As Unity continues to evolve and enhance its multiplayer capabilities, it is expected to play a significant role in shaping the future of multiplayer game development.
+
+\subsection{Unity in Tank Tactics}
+The Tank Tactics project has leveraged Unity's NGO framework and UGS to implement online multiplayer functionality. By utilising NGO's networking capabilities, Tank Tactics can synchronise the game state and enable real-time multiplayer gameplay, ensuring a smooth and responsive experience for players. This aligns with the project's goal of creating an engaging dynamic multiplayer environment as outlined in Chapter 1 (section 1.1.1).
+\\
+\noindent
+\\
+Tank Tactics also integrates the Relay and Lobby services provided by UGS to facilitate player connection and matchmaking. These services streamline the process of finding and joining game sessions, eliminating the need for manual port forwarding and IP address sharing, as discussed in Chapter 2 (section 2.2.2). By leveraging these services, Tank Tactics addresses the challenges associated with traditional multiplayer game development, providing an accessible and user-friendly experience for players.
+\\
+\noindent
+\\
+Unlike the deterministic lockstep model used in Age of Empires in chapter 2 (section 2.3.2), Tank Tactics employs a client-hosted listen server model (section 2.3.5). This approach allows for faster-paced, real-time gameplay without the latency issues that can arise in a deterministic lockstep model. However, it also introduces some disadvantages, such as potential latency advantages for the host player and dependence on the host's connection quality. Despite these limitations, the client-hosted listen server model is well-suited for smaller-scale multiplayer games like Tank Tactics, where the costs of running dedicated servers may outweigh the benefits.
+\\
+\noindent
+\\
+The use of Unity's multiplayer technologies in Tank Tactics demonstrates the engine's effectiveness in creating online multiplayer games. The combination of NGO and UGS has streamlined the development process, allowing the project to focus on gameplay mechanics and player interactions while relying on Unity's robust networking infrastructure. This aligns with the project's objectives in chapter 1 (section 1.3) of implementing seamless multiplayer connectivity and developing engaging gameplay features.
 
 % Pleae use this section
 \section{Summary} 
-
+The literature review conducted in this chapter provides a comprehensive overview of the key aspects related to the development of Tank Tactics, an online multiplayer game built using the Unity game engine. The review begins tracing the history of gaming and networking, highlighting the evolution of multiplayer gaming from early games like Tennis for Two and Spacewar to the rise of MUDs, arcade gaming, LAN-based gaming, and eventually Internet-based multiplayer gaming. This historical context sets the stage for understanding the challenges and opportunities faced by modern multiplayer game developers.
+\\
+\noindent
+\\
+The review then goes into the specific challenges associated with developing online multiplayer games, such as connecting players, dealing with manual port forwarding and IP sharing, navigating complex network configurations, ensuring scalability and performance, and addressing security concerns. By examining these challenges, the review underscores the importance of leveraging modern technologies and frameworks, such as Unity's NGO framework and UGS Relay & Lobby, to overcome these obstacles and provide a seamless and accessible multiplayer experience for players.
+\\
+\noindent
+\\
+The choice of network topology is identified as a fundamental design decision in multiplayer game development. The analysis compares the two main types of network topologies, client-server and peer-to-peer, discussing their respective advantages and disadvantages. It also explores hybrid topologies and explains how Tank Tactics employs a client-hosted listen server model, which combines aspects of both client-server and peer-to-peer architectures to balance the benefits and drawbacks of each approach.
+\\
+\noindent
+\\
+The literature review provides an in-depth exploration of the Unity game engine and its multiplayer technologies, which form the foundation for the development of Tank Tactics. It highlights Unity's user-friendliness, versatility, and widespread adoption among game developers, as well as its powerful scripting capabilities using C\#. The study examines Unity's primary multiplayer solution, the Netcode for GameObjects (NGO) framework, which abstracts away the complexities of networking and enables developers to focus on creating gameplay logic and synchronizing objects across the network. It also covers Unity Gaming Services (UGS), particularly the Relay and Lobby services, which facilitate player connection and matchmaking, streamlining the multiplayer experience for both developers and players.
+\\
+\noindent
+\\
+While acknowledging the limitations of Unity's multiplayer solutions in terms of scalability and performance, the analysis emphasizes Unity Technologies' continuous efforts to improve and expand its multiplayer offerings. As Unity evolves and enhances its multiplayer capabilities, it is expected to play a significant role in shaping the future of multiplayer game development.
+\\
+\noindent
+\\
+Finally, the literature review examines how Tank Tactics leverages Unity's multiplayer technologies to create a unique and engaging online gaming experience. By utilizing the NGO's networking capabilities and integrating UGS Relay \& Lobby services, Tank Tactics addresses the challenges associated with traditional multiplayer game development, providing an accessible and user-friendly experience for players. The project's use of a client-hosted listen server model allows for faster-paced, real-time gameplay while minimizing the costs and complexities of running dedicated servers.
+\\
+\noindent
+\\
+In conclusion, the literature review provides a solid foundation for understanding the context, challenges, and opportunities involved in developing an online multiplayer game like Tank Tactics using the Unity game engine. By leveraging the insights gained from this study, the Tank Tactics project can effectively navigate the complexities of multiplayer game development, and create an engaging and accessible gaming experience.
