@@ -112,19 +112,65 @@ UGS Lobby, on the other hand, offers a convenient way for players to find and jo
 The combination of Unity Netcode for GameObjects and Unity Gaming Services Relay \& Lobby enables Tank Tactics to implement a client-hosted listen server model, as described in Chapter 2 (section 2.3.5). In this hybrid network topology, one of the players acts as both a client and a server, hosting the game for other players who connect as clients. This approach offers several benefits, such as reduced hosting costs and improved accessibility, while still maintaining the advantages of a client-server architecture, such as better security and simplified game state management. By utilising the power of Unity Netcode and Unity Gaming Services, Tank Tactics can deliver a smooth, responsive, and seamless multiplayer experience that effectively addresses the challenges associated with traditional multiplayer game development. These technologies align with the project's objectives, as outlined in Chapter 1 (section 1.3), and provide a robust foundation for implementing the game's core multiplayer features and mechanics.
 
 \section{Implementations}
+This section provides a comprehensive overview of the implementation of Tank Tactics, covering various aspects such as game design, project setup, core gameplay mechanics, multiplayer architecture, and UI/game management.
 
 \subsection{Game Design}
+Tank Tactics is designed as an engaging, combat multiplayer tank battle game. The core gameplay resolves around players controlling tanks, collecting coins, and using the designated healing zones around the map, killing other players to collect bounty coins that are dropped. The game incorporates various other features to enhance the overall experience, including a real-time leaderboard, and a mini-map.
+\\
+\noindent
+\\
+The game design aims to provide an enjoyable experience for up to 20 players simultaneously. It draws inspiration from popular .io style games and classic tank-based titles.
 
 \subsection{Project Setup}
-
-\subsection{Multiplayer Architecture}
+Tank Tactics is developed using the Unity game engine, taking advantage of its extensive features and tools for game development. The project is structured in a modular and organized manner, with various scripts, prefabs, and assets carefully categorized based on their functionality. This approach ensures maintainability, ease of debugging, and flexibility for future expansion.
+\\
+\noindent
+\\
+The scripts are categorized into different functionalities, such as core player mechanics, combat systems, coin management, networking, and UI/game management. This modular approach allows for easy maintenance, debugging, and expansion of the game's features.
 
 \subsection{Core Gameplay Mechanics}
+The core gameplay mechanics of Tank Tactics are implemented through various scripts that handle different aspects of player functionality, combat, coin management, and game events. The tank movement and aiming mechanisms are designed to be intuitive and responsive, allowing players to navigate the game world and engage in combat effectively. The shooting mechanics are fine-tuned to ensure a satisfying and balanced gameplay experience.
+\\
+\noindent
+\\
+The game features a coin collection system, where players can gather coins scattered throughout the map. These coins serve as a form of in-game ammo and currency, enabling players to utilise the designated healing zones and enhance their gameplay. The coin management system keeps track of each player's coin balance and handles the spawning and collection of coins seamlessly.
+\\
+\noindent
+\\
+Combat mechanics, such as damage calculation and health management, are implemented to create a challenging and rewarding experience. Players can engage in battles with other tanks, with the outcome determined by factors such as weapon accuracy, damage output, and strategic positioning. Healing zones and player respawning mechanics add an extra layer of strategy and ensure fair gameplay.
 
-\subsection{UGS Integration}
+\subsection{Network Architecture}
+Tank Tactics employs a client-hosted listen server model, which combines elements of client-server and peer-to-peer architectures. This approach allows for efficient network communication and synchronization between players while minimizing the need for dedicated server infrastructure.
+\\
+\noindent
+\\
+The game leverages Unity's Netcode for GameObjects (NGO) framework to handle the underlying network communication and synchronization. NGO simplifies the process of implementing multiplayer functionality by providing a high-level API for managing network objects, synchronizing game states, and handling client-server interactions.
+\\
+\noindent
+\\
+To enhance the multiplayer experience further, Tank Tactics integrates Unity Gaming Services (UGS). UGS provides a suite of tools and services for features such as player authentication, matchmaking, and lobby management. By leveraging UGS, the game ensures a seamless and user-friendly multiplayer experience, allowing players to easily connect, join games, and interact with each other.
+\\
+\noindent
+\\
+The multiplayer architecture is designed to handle various aspects of network communication efficiently, such as object spawning and despawning, position synchronization, and event propagation. The implementation ensures a smooth and responsive gameplay experience, minimizing the impact of network latency and optimizing bandwidth usage.
+
+\subsection{UI and Game Management}
+The user interface (UI) and game management aspects of Tank Tactics are implemented to provide players with a polished and intuitive experience. The UI is designed to be clean, informative, and easy to navigate, allowing players to access essential information and perform actions effortlessly.
+\\
+\noindent
+\\
+Players can browse available lobbies, create their own lobbies, and join existing ones. The lobby management system handles player connections, disconnections, and game session initialization.
+\\
+\noindent
+\\
+Game management scripts handle various aspects of the game's flow and progression. This includes managing game states, triggering events, and handling player actions. The implementation ensures a consistent and synchronized experience for all players, regardless of their role as a host or client.
+\\
+\noindent
+\\
+Overall, the UI and game management components of Tank Tactics are designed to enhance the player experience, providing a seamless and intuitive interface for navigating the game world, managing multiplayer sessions, and interacting with other players.
 %\clearpage %  use command \clearpage when you want section or text to appear in the next page.
 
 
 \section{Summary}
-Write a summary of this chapter.
+In summary, the implementation of Tank Tactics showcases a modular and well-structured approach to game development. The game design prioritizes player engagement, and competition, while the project setup ensures maintainability and extensibility. The core gameplay mechanics are implemented to provide a dynamic and rewarding experience, with smooth tank controls, strategic coin collection, and intense combat. The multiplayer architecture leverages Unity's NGO framework and UGS to enable efficient network communication and a seamless multiplayer experience. The UI and game management aspects are designed to be intuitive, informative, and user-friendly, enhancing the overall player experience. By combining these elements, Tank Tactics delivers an immersive and exciting multiplayer tank battle game that encourages, strategy, and skill.
 
