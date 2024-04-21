@@ -12,6 +12,17 @@
 %%----------------------------------------------------------------------------------
 \documentclass[a4paper,11pt,oneside]{book}
 
+\usepackage{verbatim}
+\newcommand{\quickwordcount}[1]{%
+  \noindent\immediate\write18{texcount -1 -sum -merge -q #1.tex output.bbl > #1-words.sum }%
+  \input{#1-words.sum} words%
+}
+
+\newcommand{\totalwordcount}{%
+  \immediate\write18{texcount -1 -sum -merge -q chapters/*.tex output.bbl > total-words.sum}%
+  \input{total-words.sum} Total%
+}
+
 %%-------------------------------------
 %% Page margin settings - % half inch margin all sides (recommended)
 %%-------------------------------------
@@ -110,6 +121,14 @@
 %%%%                     SETTING ENDS                                            %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+    \quickwordcount{chapters/introduction} introduction\\ 
+    \quickwordcount{chapters/literature} literature \\
+    \quickwordcount{chapters/methodology} methodology \\
+    \quickwordcount{chapters/discussion} discussion \\
+    \quickwordcount{chapters/conclusions} conclusion \\
+    \quickwordcount{chapters/reflection} reflection \\\\
+    \totalwordcount
+    
     %\setcitestyle{square}
     \captionsetup[figure]{margin=1.5cm,font=small,name={Figure},labelsep=colon}
     \captionsetup[table]{margin=1.5cm,font=small,name={Table},labelsep=colon}
