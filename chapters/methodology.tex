@@ -131,9 +131,18 @@ The scripts are categorized into different functionalities, such as core player 
 \subsection{Core Gameplay Mechanics}
 The core gameplay mechanics of Tank Tactics are implemented through various scripts that handle different aspects of player functionality, combat, coin management, and game events. The tank movement and aiming mechanisms are designed to be intuitive and responsive, allowing players to navigate the game world and engage in combat effectively. The shooting mechanics are fine-tuned to ensure a satisfying and balanced gameplay experience.
 \\
-\noindent
-\\
-The game features a coin collection system, where players can gather coins scattered throughout the map. These coins serve as a form of in-game ammo and currency, enabling players to utilise the designated healing zones and enhance their gameplay. The coin management system keeps track of each player's coin balance and handles the spawning and collection of coins seamlessly.
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/GamePlay.png}
+    \caption{Gameplay}
+    \label{fig:player_gameplay}
+    \end{minipage}
+\end{figure}
+
+\noindent The game features a coin collection system, where players can gather coins scattered throughout the map. These coins serve as a form of in-game ammo and currency, enabling players to utilise the designated healing zones and enhance their gameplay. The coin management system keeps track of each player's coin balance and handles the spawning and collection of coins seamlessly.
 \\
 \noindent
 \\
@@ -150,9 +159,18 @@ The game leverages Unity's Netcode for GameObjects (NGO) framework to handle the
 \\
 To enhance the multiplayer experience further, Tank Tactics integrates Unity Gaming Services (UGS). UGS provides a suite of tools and services for features such as player authentication, matchmaking, and lobby management. By leveraging UGS, the game ensures a seamless and user-friendly multiplayer experience, allowing players to easily connect, join games, and interact with each other.
 \\
-\noindent
-\\
-The multiplayer architecture is designed to handle various aspects of network communication efficiently, such as object spawning and despawning, position synchronization, and event propagation. The implementation ensures a smooth and responsive gameplay experience, minimizing the impact of network latency and optimizing bandwidth usage.
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/Lobby.png}
+    \caption{Player Lobby}
+    \label{fig:player_lobby}
+    \end{minipage}
+\end{figure}
+
+\noindent The multiplayer architecture is designed to handle various aspects of network communication efficiently, such as object spawning and despawning, position synchronization, and event propagation. The implementation ensures a smooth and responsive gameplay experience, minimizing the impact of network latency and optimizing bandwidth usage.
 
 \subsection{UI and Game Management}
 The user interface (UI) and game management aspects of Tank Tactics are implemented to provide players with a polished and intuitive experience. The UI is designed to be clean, informative, and easy to navigate, allowing players to access essential information and perform actions effortlessly.
@@ -160,8 +178,24 @@ The user interface (UI) and game management aspects of Tank Tactics are implemen
 \noindent
 \\
 Players can browse available lobbies, create their own lobbies, and join existing ones. The lobby management system handles player connections, disconnections, and game session initialization.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/Connection.png}
+    \caption{Player Connection}
+    \label{fig:player_connection}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/MENU.png}
+    \caption{Menu Screen}
+    \label{fig:player_menu}
+    \end{minipage}
+\end{figure}
 \\
-\noindent
+\\
 \\
 Game management scripts handle various aspects of the game's flow and progression. This includes managing game states, triggering events, and handling player actions. The implementation ensures a consistent and synchronized experience for all players, regardless of their role as a host or client.
 \\
