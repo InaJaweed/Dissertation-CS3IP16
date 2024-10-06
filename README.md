@@ -16,3 +16,6 @@ This project is a top-down online multiplayer tank battle game called **Tank Tac
 
 ## Future Work
 Potential improvements include advanced matchmaking, and performance optimizations.
+
+Documentation
+You can read the full dissertation [here](./Dissertation_CS3IP16.pdf).
